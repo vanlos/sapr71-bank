@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Credits";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Найдите свой кредит</h3>
+<form action="" method="post">
+    <table class="table table-bordered">
+        <tr>
+            <td>Сумма кредита</td>
+            <td>
+                <input type="text" name="sum" id="sum" />
+                <input type="range" min="0" max="1000000" step="10000" id="sumRange" oninput="updateSum(this.value)" class="slider" />
+            </td> 
+        </tr>
+        <tr>
+            <td><input type="submit" value="Найти" /></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function updateSum(val) {
+        document.getElementById('sum').value = val;
+    }
+</script>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Предложения по кредитам</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th><p>Банк</p></th>
+                <th><p>Название кредита</p></th>
+                <th><p>Ставка</p></th>
+                <th><p>Максимальная сумма</p></th>
+            </tr>
+            @foreach (var c in ViewBag.Credits)
+            {
+                if (ViewBag.sum == null)
+                {
+                    <tr>
+                        <td><p>@c.bank</p></td>
+                        <td><p>@c.title</p></td>
+                        <td><p>@c.rate</p></td>
+                        <td><p>@c.sum</p></td>
+                    </tr>
+                }
+                else if (ViewBag.sum <= c.sum)
+                {
+                    <tr>
+                        <td><p>@c.bank</p></td>
+                        <td><p>@c.title</p></td>
+                        <td><p>@c.rate</p></td>
+                        <td><p>@c.sum</p></td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
+<button>
+    @Html.ActionLink("Калькулятор кредитов", "CreditCalc", "Home")
+</button>

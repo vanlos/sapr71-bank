@@ -1,0 +1,41 @@
+﻿h1,
+#impact {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 200;
+}
+
+.menu {
+    background: orange;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    margin-left: 15px;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 0px;
+}
+
+.table2 {
+    background: orange;
+}
+
+.tableclick2:hover {
+    background: gray;
+}
+
+.tableclick:hover {
+    background: white;
+}
+
+.click:hover {
+    color: orange;
+    font-size: 30px;
+    padding: 15px;
+    margin-left: 15px;
+}

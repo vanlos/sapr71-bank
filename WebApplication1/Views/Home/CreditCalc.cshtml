@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "CreditCalc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Калькулятор кредитов</h2>
+<form method="post" action="">
+    <p>Сумма кредита</p>
+    <input type="text" name="Sum" />
+    <p>Процентная ставка</p>
+    <input type="text" name="Rate" />
+    <p>Срок</p>
+    <select name="Limit">
+        <option>3 месяца</option>
+        <option>6 месяцев</option>
+        <option>год</option>
+        <option>2 года</option>
+        <option>4 года</option>
+        <option>5 лет</option>
+        <option>8 лет</option>
+        <option>10 лет</option>
+        <option>15 лет</option>
+        <option>20 лет</option>
+        <option>25 лет</option>
+        <option>30 лет</option>
+    </select>
+    <input type="submit" value="Расчитать" />
+</form>
+<hr />
+<div>
+    <table>
+        <tr><td>Ежемесячный платёж: </td></tr>
+        <tr><td><b>@ViewData["AnnuPay"]</b></td></tr>
+        <tr><td>Долг с учётом переплаты: </td></tr>
+        <tr><td><b>@ViewData["Total"]</b></td></tr>
+        <tr><td>Сумма переплаты: </td></tr>
+        <tr><td><b>@ViewData["Over"]</b></td></tr>
+    </table>
+</div>
+

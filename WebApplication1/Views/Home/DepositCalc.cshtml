@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "DepositCalc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Калькулятор Вкладов</h2>
+
+<form method="post" action="">
+    <p>Сумма вклада</p>
+    <input type="text" name="Sum" />
+    <p>Срок размещения</p>
+    <input type="text" name="Limit" />
+    <p>Дата начала срока (лет)</p>
+    <input type="date" name="Start" />
+    <p>Процентная ставка</p>
+    <input type="text" name="Rate" />
+    <p>Периодичность капитализации</p>
+    <select name="Period">
+        <option>ежедневно</option>
+        <option>еженедельно</option>
+        <option>раз в месяц</option>
+        <option>раз в квартал</option>
+        <option>раз в полгода</option>
+        <option>раз в год</option>
+    </select>
+    <input type="submit" value="Расчитать" />
+</form>
+<hr />
+<div>
+    <table>
+        <tr><td>Начисленные проценты: </td></tr>
+        <tr><td><b>@ViewData["Procents"]</b></td></tr>
+        <tr><td>Начисляется каждый период: </td></tr>
+        <tr><td><b>@ViewData["Period"]</b></td></tr>
+    </table>
+</div>
+
